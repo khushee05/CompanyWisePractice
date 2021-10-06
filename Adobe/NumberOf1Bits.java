@@ -1,34 +1,34 @@
-/ User function Template for Java
+// { Driver Code Starts
+// Initial Template for Java
+import java.io.*;
+import java.util.*;
 
-// function Template for Java
+class GFG {
+    public static void main(String args[]) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t-- > 0) {
+            int N = sc.nextInt();
 
-// FUNCTION CODE
-/* A Binary Tree node
-class Node
-{
-    int data;
-    Node left, right;
-   Node(int item)
-   {
-        data = item;
-        left = right = null;
-    }
-} */
-
-class Solution {
-  
-    void mirror(Node node) {
-        if(node==null){
-            return;
+            Solution ob = new Solution();
+            int cnt = ob.setBits(N);
+            System.out.println(cnt);
         }
-        Node temp;
-        
-        mirror(node.left);
-        mirror(node.right);
-            temp=node.left;
-            node.left = node.right;
-            node.right=temp;
-        
-        
+    }
+}
+// } Driver Code Ends
+
+
+// User function Template for Java
+class Solution {
+    static int setBits(int N) {
+       String str = Integer.toBinaryString(N);
+       int c=0;
+       for(int i=0; i<str.length();i++){
+           if(str.charAt(i)=='1'){
+               c++;
+           }
+       }
+       return c;
     }
 }
